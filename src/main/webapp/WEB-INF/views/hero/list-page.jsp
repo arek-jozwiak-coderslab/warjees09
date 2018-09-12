@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../header.jsp"/>
+<%@ taglib prefix = "ara" tagdir = "/WEB-INF/tags" %>
 
 
     <div class="row">
@@ -20,6 +21,11 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="table-responsive">
+
+
+                    <c:url var="url" value="/hero/list-page"></c:url>
+                    <ara:almighty page="${page}" url="${url}" size="5"/>
+
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>
@@ -30,12 +36,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${heroes}" var="hero">
+                        <c:forEach items="${page.content}" var="hero">
                             <tr>
                                 <td>${hero.id}</td>
                                 <td>${hero.name}</td>
                                 <td>${hero.superPower}</td>
-                                <td><a class="confirm btn btn-success" href="/hero/remove/${hero.id}">delete</a></td>
+                                <td><a class="confirm" href="/hero/remove/${hero.id}">delete</a></td>
                             </tr>
                         </c:forEach>
                         </tbody>
