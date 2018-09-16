@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../header.jsp"/>
 <%@ taglib prefix = "ara" tagdir = "/WEB-INF/tags" %>
+<%@ taglib tagdir="/WEB-INF/tags/util" prefix="util"%>
 
 
     <div class="row">
@@ -22,10 +23,7 @@
             <div class="panel-body">
                 <div class="table-responsive">
 
-
-                    <c:url var="url" value="/hero/list-page"></c:url>
-                    <ara:almighty page="${page}" url="${url}" size="5"/>
-
+                    <util:pagination thispage="${page}"></util:pagination>
                     <table class="table table-striped table-bordered table-hover">
                         <thead>
                         <tr>

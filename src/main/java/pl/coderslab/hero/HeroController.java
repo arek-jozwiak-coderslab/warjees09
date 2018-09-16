@@ -1,6 +1,7 @@
 package pl.coderslab.hero;
 
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +33,8 @@ public class HeroController {
 
     @RequestMapping("/list-page")
     public String listPage(Model model, Pageable pageable) {
-        model.addAttribute("page", heroRepository.findAll(pageable));
+        Page<Hero> page = heroRepository.findAll(pageable);
+        model.addAttribute("page", page);
         return "hero/list-page";
     }
 
@@ -49,14 +51,14 @@ public class HeroController {
     }
 
     @PostMapping("/add")
-    public String addPersonPerform(@RequestParam("file") MultipartFile file, @ModelAttribute @Valid Hero hero, BindingResult result,
+    public String addPersonPerform(@RequestParam("file") MultipartFile file,
+                                   @ModelAttribute @Valid Hero hero, BindingResult result,
                                    RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             return "hero/add";
         }
         if (!file.isEmpty()) {
             storageService.store(file);
-
         }
         redirectAttributes.addFlashAttribute("message", "Hero dodany prawidłowo ");
 

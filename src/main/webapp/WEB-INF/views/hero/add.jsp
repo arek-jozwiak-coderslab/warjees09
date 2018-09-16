@@ -31,6 +31,11 @@
                         <form:errors path="dateOfBirth" cssClass="error"/>
                     </div>
                     <div class="form-group">
+                        <label>dateTimeOfBirth:</label>
+                        <form:input path="dateTimeOfBirth" cssClass="form-control"/>
+                        <form:errors path="dateTimeOfBirth" cssClass="error"/>
+                    </div>
+                    <div class="form-group">
                         <input type="file" name="file"/>
                     </div>
                     <div class="form-group">

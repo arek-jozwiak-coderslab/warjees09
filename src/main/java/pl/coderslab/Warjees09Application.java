@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import pl.coderslab.storage.StorageProperties;
-import pl.coderslab.storage.StorageService;
+//import pl.coderslab.storage.StorageService;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
@@ -17,11 +17,11 @@ public class Warjees09Application {
     }
 
 
-    @Bean
-    CommandLineRunner init(StorageService storageService) {
-        return (args) -> {
-       //     storageService.deleteAll();
-            storageService.init();
-        };
-    }
+//    @Bean
+//    CommandLineRunner init(StorageService storageService) {
+//        return (args) -> {
+//       //     storageService.deleteAll();
+//            storageService.init();
+//        };
+//    }
 }
